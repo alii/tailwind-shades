@@ -1,0 +1,3 @@
+body {
+	@apply dark:bg-neutral-900 dark:text-neutral-300;
+}

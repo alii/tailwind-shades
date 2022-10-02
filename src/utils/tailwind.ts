@@ -1,5 +1,5 @@
-import tailwindColors from 'tailwindcss/colors';
 import {colord} from 'colord';
+import tailwindColors from 'tailwindcss/colors';
 import {mirrorObject as mirror} from './misc';
 
 export function calculateAverageDefaultTailwindBrightnessLevels() {

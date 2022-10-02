@@ -1,8 +1,7 @@
-import {HexColorInput, HexColorPicker} from 'react-colorful';
-import {useState} from 'react';
-import {Hex, getColorName, getTheme} from '../utils/color';
 import {GetServerSideProps} from 'next';
-import {colord} from 'colord';
+import {useState} from 'react';
+import {HexColorInput, HexColorPicker} from 'react-colorful';
+import {getTheme, Hex} from '../utils/color';
 
 interface Props {
 	startingColor: Hex;
@@ -10,7 +9,6 @@ interface Props {
 
 export default function Home(props: Props) {
 	const [color, setColor] = useState(props.startingColor);
-
 	const theme = getTheme(color);
 
 	return (

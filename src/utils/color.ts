@@ -42,18 +42,20 @@ export function getTheme(color: Hex) {
 				level as keyof typeof defaultTailwindBrightnessLevels
 			] > closestBrightness;
 
-		const targetBrightness = Math.abs(
-			targetColorBrightness -
-				defaultTailwindBrightnessLevels[
-					level as keyof typeof defaultTailwindBrightnessLevels
-				],
+		const v =
+			defaultTailwindBrightnessLevels[
+				level as keyof typeof defaultTailwindBrightnessLevels
+			];
+
+		const targetBrightnessDelta = Math.abs(
+			isLighter ? targetColorBrightness + v : targetColorBrightness - v,
 		);
 
 		return {
 			...all,
 			[level]: isLighter
-				? (colord(color).lighten(targetBrightness).toHex() as Hex)
-				: (colord(color).darken(targetBrightness).toHex() as Hex),
+				? (colord(color).lighten(targetBrightnessDelta).toHex() as Hex)
+				: (colord(color).darken(targetBrightnessDelta).toHex() as Hex),
 		};
 	}, {} as Record<string, Hex>);
 
